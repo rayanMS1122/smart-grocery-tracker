@@ -6,16 +6,16 @@ class EditGroceryController extends GetxController {
   final nameController = TextEditingController();
   final amountController = TextEditingController();
 
-  final selectedCategory = 'Obst & GemÃ¼se'.obs;
+  final selectedCategory = 'Obst & Gemüse'.obs;
   final selectedDate = DateTime.now().add(const Duration(days: 7)).obs;
 
   final List<String> categories = [
-    'Obst & GemÃ¼se',
+    'Obst & Gemüse',
     'Milchprodukte',
     'Fleisch & Fisch',
     'Snacks',
-    'GetrÃ¤nke',
-    'TiefkÃ¼hl',
+    'Getränke',
+    'Tiefkühl',
     'Vorratskammer',
     'Sonstiges',
   ];
