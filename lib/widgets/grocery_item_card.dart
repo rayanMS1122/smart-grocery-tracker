@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 
@@ -143,7 +143,7 @@ class GroceryItemCard extends StatelessWidget {
                           ),
                           SizedBox(width: 12.w),
                           Text(
-                            'LÃ¶schen',
+                            'Löschen',
                             style: TextStyle(color: AppColors.white),
                           ),
                         ],

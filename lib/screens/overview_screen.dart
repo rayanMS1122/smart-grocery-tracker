@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/groceries_controller.dart';
@@ -23,7 +23,7 @@ class OverviewScreen extends StatelessWidget {
               children: [
                 const Expanded(child: SizedBox()),
                 Text(
-                  'Ãœbersicht',
+                  'Übersicht',
                   style: TextStyle(
                     color: AppColors.white,
                     fontSize: 20.sp,
@@ -86,12 +86,12 @@ class OverviewScreen extends StatelessWidget {
             child: Obx(() {
               final categories = [
                 'Alle',
-                'Obst & GemÃ¼se',
+                'Obst & Gemüse',
                 'Milchprodukte',
                 'Fleisch & Fisch',
                 'Snacks',
-                'GetrÃ¤nke',
-                'TiefkÃ¼hl',
+                'Getränke',
+                'Tiefkühl',
                 'Vorratskammer',
                 'Sonstiges',
               ];

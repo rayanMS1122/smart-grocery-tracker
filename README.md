@@ -10,12 +10,25 @@ Entwickelt als Testaufgabe für die **MAWU Software GmbH**.
 Nutzer können ihre Lebensmittel mit Name, Kategorie, Menge und Ablaufdatum speichern. Die App warnt automatisch, wenn ein Produkt in weniger als 3 Tagen abläuft.
 
 ---
+## 🎨 UI Design
+
+<p align="center">
+
+Die UI Design ist verfügbar in Figma: [Smart Grocery Tracker](https://www.figma.com/design/NZHCDgJOwXan0SktAWwbgT/Smart-Grocery-Tracker?node-id=0-1&t=DGO3QEXcMTVLZLnt-1)   
+
+<a href="https://www.figma.com/design/NZHCDgJOwXan0SktAWwbgT/Smart-Grocery-Tracker?node-id=0-1&t=DGO3QEXcMTVLZLnt-1">
+  <img src="https://img.shields.io/badge/Open%20Design%20in-Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/>
+</a>
+
+</p>
+
+---
 
 ## ✨ Funktionen
 
 | Funktion | Beschreibung |
 |---|---|
-| 🔐 **Login & Registrierung** | Firebase Authentication (E-Mail / Passwort) |
+| 🔐 **Login & Registrierung** | Firebase Authentication (E-Mail / Google) |
 | 📊 **Dashboard** | Statistiken + Übersicht der letzten Einträge |
 | ➕ **Hinzufügen** | Formular mit Name, Kategorie (Dropdown), Menge, Ablaufdatum |
 | ✏️ **Bearbeiten & Löschen** | Über das Kontextmenü jeder Karte |

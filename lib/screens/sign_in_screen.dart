@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_grocery_tracker/controllers/auth_controller.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';

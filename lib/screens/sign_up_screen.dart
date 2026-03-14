@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
@@ -28,9 +28,7 @@ class SignUpPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withValues(alpha: 
-                      0.04,
-                    ),
+                    AppColors.white.withValues(alpha: 0.04),
                     AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.0, 0.8],
@@ -66,9 +64,7 @@ class SignUpPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withValues(alpha: 
-                      0.02,
-                    ),
+                    AppColors.white.withValues(alpha: 0.02),
                     AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.1, 0.8],
@@ -98,7 +94,7 @@ class SignUpPage extends StatelessWidget {
                             ),
                             SizedBox(height: 30.h),
                             Text(
-                              'Sign Up',
+                              'Registrieren',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 32.sp,
@@ -117,7 +113,7 @@ class SignUpPage extends StatelessWidget {
                             ),
                             SizedBox(height: 40.h),
                             Text(
-                              'Email-address*',
+                              'E-Mail-Adresse*',
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.white,
@@ -132,7 +128,7 @@ class SignUpPage extends StatelessWidget {
                                 fontSize: 14.sp,
                               ),
                               decoration: InputDecoration(
-                                hintText: 'Example@gmai.com',
+                                hintText: 'beispiel@gmail.com',
                                 hintStyle: TextStyle(
                                   color: AppColors.greyMedium,
                                 ),
@@ -158,7 +154,7 @@ class SignUpPage extends StatelessWidget {
                             ),
                             SizedBox(height: 20.h),
                             Text(
-                              'Password*',
+                              'Passwort*',
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.white,
@@ -213,7 +209,7 @@ class SignUpPage extends StatelessWidget {
                             ),
                             SizedBox(height: 20.h),
                             Text(
-                              'Confirm Password*',
+                              'Passwort bestätigen*',
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.white,
@@ -280,7 +276,7 @@ class SignUpPage extends StatelessWidget {
                                 elevation: 0,
                               ),
                               child: Text(
-                                'Sign Up',
+                                'Registrieren',
                                 style: TextStyle(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
@@ -304,7 +300,7 @@ class SignUpPage extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    'Log in',
+                                    'Anmelden',
                                     style: TextStyle(
                                       color: Colors.grey.shade300,
                                       fontWeight: FontWeight.bold,

@@ -1,12 +1,12 @@
-﻿import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 
 class GroceryModel {
   final String? id;
   final String name;       // z.B. "Apfel"
-  final String category;   // z.B. "Obst & GemÃ¼se"
-  final String amount;     // z.B. "5 StÃ¼ck"
+  final String category;   // z.B. "Obst & Gemüse"
+  final String amount;     // z.B. "5 Stück"
   final DateTime expiryDate;
 
   GroceryModel({
@@ -53,7 +53,7 @@ class GroceryModel {
     final difference = expiryDate.difference(now).inDays;
 
     if (difference < 0) return "Abgelaufen";
-    if (difference < 3) return "LÃ¤uft bald ab";
+    if (difference < 3) return "Läuft bald ab";
     if (difference < 7) return "Gut";
     return "Sehr gut";
   }

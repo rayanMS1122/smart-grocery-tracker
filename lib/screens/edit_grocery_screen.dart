@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/edit_grocery_controller.dart';
@@ -44,7 +44,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
   Future<void> _updateGrocery(BuildContext context) async {
     if (formController.nameController.text.trim().isEmpty ||
         formController.amountController.text.trim().isEmpty) {
-      Get.snackbar('Fehler', 'Bitte fÃ¼lle alle Felder aus.');
+      Get.snackbar('Fehler', 'Bitte fülle alle Felder aus.');
       return;
     }
 
@@ -70,7 +70,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
     const months = [
       "Januar",
       "Februar",
-      "MÃ¤rz",
+      "März",
       "April",
       "Mai",
       "Juni",

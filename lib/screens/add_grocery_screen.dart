@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/add_grocery_controller.dart';
@@ -18,7 +18,7 @@ class AddGroceryScreen extends StatelessWidget {
         formController.amountController.text.trim().isEmpty) {
       Get.snackbar(
         'Fehler',
-        'Bitte fÃ¼lle Name und Menge aus.',
+        'Bitte fülle Name und Menge aus.',
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
       );
@@ -38,7 +38,7 @@ class AddGroceryScreen extends StatelessWidget {
       Get.back();
       Get.snackbar(
         'Erfolg',
-        'Lebensmittel erfolgreich hinzugefÃ¼gt!',
+        'Lebensmittel erfolgreich hinzugefügt!',
         backgroundColor: AppColors.primaryLime,
         colorText: AppColors.black,
       );
@@ -51,7 +51,7 @@ class AddGroceryScreen extends StatelessWidget {
     const months = [
       "Januar",
       "Februar",
-      "MÃ¤rz",
+      "März",
       "April",
       "Mai",
       "Juni",
@@ -188,7 +188,7 @@ class AddGroceryScreen extends StatelessWidget {
             ),
           ),
           Text(
-            'Lebensmittel hinzufÃ¼gen',
+            'Lebensmittel hinzufügen',
             style: TextStyle(
               color: AppColors.white,
               fontSize: 18.sp,

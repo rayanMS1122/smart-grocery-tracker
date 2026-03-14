@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/navigation_controller.dart';
@@ -115,14 +115,14 @@ class MainScreen extends StatelessWidget {
                 padding: EdgeInsets.only(top: 8.h),
                 child: Icon(Icons.home, size: 32.r),
               ),
-              label: 'Home',
+              label: 'Start',
             ),
             BottomNavigationBarItem(
               icon: Padding(
                 padding: EdgeInsets.only(top: 8.h),
                 child: Icon(Icons.calendar_today_outlined, size: 28.r),
               ),
-              label: 'Ãœbersicht',
+              label: 'Übersicht',
             ),
           ],
         ),
