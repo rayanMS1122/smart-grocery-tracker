@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+﻿import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +37,7 @@ class AuthController extends GetxController {
       isLoading.value = true;
 
       if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-        Get.snackbar('Fehler', 'E-Mail und Passwort dürfen nicht leer sein');
+        Get.snackbar('Fehler', 'E-Mail und Passwort dÃ¼rfen nicht leer sein');
         return;
       }
       await auth.signInWithEmailAndPassword(
@@ -45,18 +45,16 @@ class AuthController extends GetxController {
         password: passwordController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
-      // Fehlermeldung passend zum Fehlercode setzen
       String errorMessage = 'Ein unbekannter Fehler ist aufgetreten.';
       if (e.code == 'user-not-found') {
         errorMessage = 'Es existiert kein Benutzer mit dieser E-Mail.';
       } else if (e.code == 'wrong-password' || e.code == 'invalid-credential') {
         errorMessage = 'Falsches Passwort oder E-Mail.';
       } else if (e.code == 'invalid-email') {
-        errorMessage = 'Die E-Mail-Adresse ist ungültig.';
+        errorMessage = 'Die E-Mail-Adresse ist ungÃ¼ltig.';
       } else {
         errorMessage = e.message ?? errorMessage;
       }
-      // Fehlermeldung dem Nutzer anzeigen
       Get.snackbar('Fehler', errorMessage);
     } catch (e) {
       Get.snackbar('Fehler', 'Etwas ist schief gelaufen');
@@ -70,7 +68,7 @@ class AuthController extends GetxController {
       isLoading.value = true;
 
       if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-        Get.snackbar('Fehler', 'E-Mail und Passwort dürfen nicht leer sein');
+        Get.snackbar('Fehler', 'E-Mail und Passwort dÃ¼rfen nicht leer sein');
         return;
       }
       UserCredential credential = await auth.createUserWithEmailAndPassword(
@@ -86,18 +84,16 @@ class AuthController extends GetxController {
         });
       }
     } on FirebaseAuthException catch (e) {
-      // Fehlermeldung passend zum Fehlercode setzen
       String errorMessage = 'Ein unbekannter Fehler ist aufgetreten.';
       if (e.code == 'email-already-in-use') {
         errorMessage = 'Diese E-Mail wird bereits verwendet.';
       } else if (e.code == 'weak-password') {
         errorMessage = 'Das Passwort ist zu schwach (min. 6 Zeichen).';
       } else if (e.code == 'invalid-email') {
-        errorMessage = 'Die E-Mail-Adresse ist ungültig.';
+        errorMessage = 'Die E-Mail-Adresse ist ungÃ¼ltig.';
       } else {
         errorMessage = e.message ?? errorMessage;
       }
-      // Fehlermeldung dem Nutzer anzeigen
       Get.snackbar('Fehler', errorMessage);
     } catch (e) {
       Get.snackbar('Fehler', 'Etwas ist schief gelaufen');

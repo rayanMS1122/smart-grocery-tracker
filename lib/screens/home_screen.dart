@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/groceries_controller.dart';
@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Kürzlich hinzugefügt',
+                              'KÃ¼rzlich hinzugefÃ¼gt',
                               style: TextStyle(
                                 color: AppColors.white,
                                 fontSize: 18.sp,
@@ -198,7 +198,7 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.cardBackground,
           borderRadius: BorderRadius.circular(20.r),
-          border: Border.all(color: color.withOpacity(0.3), width: 1.5.w),
+          border: Border.all(color: color.withValues(alpha: 0.3), width: 1.5.w),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

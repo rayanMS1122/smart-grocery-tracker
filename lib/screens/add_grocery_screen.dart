@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/add_grocery_controller.dart';
@@ -18,7 +18,7 @@ class AddGroceryScreen extends StatelessWidget {
         formController.amountController.text.trim().isEmpty) {
       Get.snackbar(
         'Fehler',
-        'Bitte fülle Name und Menge aus.',
+        'Bitte fÃ¼lle Name und Menge aus.',
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
       );
@@ -38,7 +38,7 @@ class AddGroceryScreen extends StatelessWidget {
       Get.back();
       Get.snackbar(
         'Erfolg',
-        'Lebensmittel erfolgreich hinzugefügt!',
+        'Lebensmittel erfolgreich hinzugefÃ¼gt!',
         backgroundColor: AppColors.primaryLime,
         colorText: AppColors.black,
       );
@@ -51,7 +51,7 @@ class AddGroceryScreen extends StatelessWidget {
     const months = [
       "Januar",
       "Februar",
-      "März",
+      "MÃ¤rz",
       "April",
       "Mai",
       "Juni",
@@ -164,8 +164,8 @@ class AddGroceryScreen extends StatelessWidget {
         shape: BoxShape.circle,
         gradient: RadialGradient(
           colors: [
-            AppColors.white.withOpacity(opacity),
-            AppColors.white.withOpacity(0.0),
+            AppColors.white.withValues(alpha: opacity),
+            AppColors.white.withValues(alpha: 0.0),
           ],
           stops: const [0.0, 0.8],
         ),
@@ -188,7 +188,7 @@ class AddGroceryScreen extends StatelessWidget {
             ),
           ),
           Text(
-            'Lebensmittel hinzufügen',
+            'Lebensmittel hinzufÃ¼gen',
             style: TextStyle(
               color: AppColors.white,
               fontSize: 18.sp,
@@ -206,7 +206,7 @@ class AddGroceryScreen extends StatelessWidget {
       text,
       style: TextStyle(
         fontSize: 14.sp,
-        color: AppColors.white.withOpacity(0.7),
+        color: AppColors.white.withValues(alpha: 0.7),
       ),
     );
   }
@@ -221,7 +221,7 @@ class AddGroceryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withOpacity(0.1), width: 1.w),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
       ),
       child: TextField(
         controller: controller,
@@ -246,7 +246,7 @@ class AddGroceryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withOpacity(0.1), width: 1.w),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
       ),
       child: DropdownButtonHideUnderline(
         child: Obx(
@@ -277,7 +277,7 @@ class AddGroceryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withOpacity(0.1), width: 1.w),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

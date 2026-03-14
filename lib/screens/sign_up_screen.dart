@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
@@ -28,10 +28,10 @@ class SignUpPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withOpacity(
+                    AppColors.white.withValues(alpha: 
                       0.04,
                     ),
-                    AppColors.white.withOpacity(0.0),
+                    AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.0, 0.8],
                 ),
@@ -48,8 +48,8 @@ class SignUpPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withOpacity(0.03),
-                    AppColors.white.withOpacity(0.0),
+                    AppColors.white.withValues(alpha: 0.03),
+                    AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.0, 0.8],
                 ),
@@ -66,10 +66,10 @@ class SignUpPage extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withOpacity(
+                    AppColors.white.withValues(alpha: 
                       0.02,
                     ),
-                    AppColors.white.withOpacity(0.0),
+                    AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.1, 0.8],
                 ),

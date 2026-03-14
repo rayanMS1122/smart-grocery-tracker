@@ -1,12 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+﻿import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 
 class GroceryModel {
   final String? id;
-  final String name;
-  final String category;
-  final String amount;
+  final String name;       // z.B. "Apfel"
+  final String category;   // z.B. "Obst & GemÃ¼se"
+  final String amount;     // z.B. "5 StÃ¼ck"
   final DateTime expiryDate;
 
   GroceryModel({
@@ -18,7 +18,6 @@ class GroceryModel {
   });
 
   factory GroceryModel.fromFirestore(DocumentSnapshot doc) {
-    // TODO: Explain this function (was ist map<String, dynamic> und so weiter)
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
     DateTime date;
@@ -54,14 +53,13 @@ class GroceryModel {
     final difference = expiryDate.difference(now).inDays;
 
     if (difference < 0) return "Abgelaufen";
-    if (difference < 3) return "Läuft bald ab";
+    if (difference < 3) return "LÃ¤uft bald ab";
     if (difference < 7) return "Gut";
     return "Sehr gut";
   }
 
   Color get statusColor {
     final now = DateTime.now();
-    // TODO: Explain this function (expiryDate.difference(now).inDays)
     final difference = expiryDate.difference(now).inDays;
 
     if (difference < 0) return AppColors.statusExpired;
@@ -72,7 +70,6 @@ class GroceryModel {
 
   Color get borderColor {
     final now = DateTime.now();
-    // TODO: Explain this function
     final difference = expiryDate.difference(now).inDays;
 
     if (difference < 3) return statusColor;

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/groceries_controller.dart';
@@ -23,7 +23,7 @@ class OverviewScreen extends StatelessWidget {
               children: [
                 const Expanded(child: SizedBox()),
                 Text(
-                  'Übersicht',
+                  'Ãœbersicht',
                   style: TextStyle(
                     color: AppColors.white,
                     fontSize: 20.sp,
@@ -56,7 +56,7 @@ class OverviewScreen extends StatelessWidget {
                 color: AppColors.cardBackground,
                 borderRadius: BorderRadius.circular(16.r),
                 border: Border.all(
-                  color: AppColors.white.withOpacity(0.1),
+                  color: AppColors.white.withValues(alpha: 0.1),
                   width: 1.w,
                 ),
               ),
@@ -86,12 +86,12 @@ class OverviewScreen extends StatelessWidget {
             child: Obx(() {
               final categories = [
                 'Alle',
-                'Obst & Gemüse',
+                'Obst & GemÃ¼se',
                 'Milchprodukte',
                 'Fleisch & Fisch',
                 'Snacks',
-                'Getränke',
-                'Tiefkühl',
+                'GetrÃ¤nke',
+                'TiefkÃ¼hl',
                 'Vorratskammer',
                 'Sonstiges',
               ];
@@ -205,8 +205,8 @@ class OverviewScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.r),
             border: Border.all(
               color: isActive
-                  ? Colors.white.withOpacity(0.5)
-                  : color.withOpacity(0.3),
+                  ? Colors.white.withValues(alpha: 0.5)
+                  : color.withValues(alpha: 0.3),
               width: 1.5.w,
             ),
           ),
@@ -215,7 +215,7 @@ class OverviewScreen extends StatelessWidget {
             style: TextStyle(
               color: isActive
                   ? AppColors.black
-                  : AppColors.white.withOpacity(0.7),
+                  : AppColors.white.withValues(alpha: 0.7),
               fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
               fontSize: 14.sp,
             ),

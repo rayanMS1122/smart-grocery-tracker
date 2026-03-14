@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/edit_grocery_controller.dart';
@@ -44,7 +44,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
   Future<void> _updateGrocery(BuildContext context) async {
     if (formController.nameController.text.trim().isEmpty ||
         formController.amountController.text.trim().isEmpty) {
-      Get.snackbar('Fehler', 'Bitte fülle alle Felder aus.');
+      Get.snackbar('Fehler', 'Bitte fÃ¼lle alle Felder aus.');
       return;
     }
 
@@ -70,7 +70,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
     const months = [
       "Januar",
       "Februar",
-      "März",
+      "MÃ¤rz",
       "April",
       "Mai",
       "Juni",
@@ -183,8 +183,8 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
         shape: BoxShape.circle,
         gradient: RadialGradient(
           colors: [
-            AppColors.white.withOpacity(opacity),
-            AppColors.white.withOpacity(0.0),
+            AppColors.white.withValues(alpha: opacity),
+            AppColors.white.withValues(alpha: 0.0),
           ],
           stops: const [0.0, 0.8],
         ),
@@ -225,7 +225,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       text,
       style: TextStyle(
         fontSize: 14.sp,
-        color: AppColors.white.withOpacity(0.7),
+        color: AppColors.white.withValues(alpha: 0.7),
       ),
     );
   }
@@ -240,7 +240,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withOpacity(0.1), width: 1.w),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
       ),
       child: TextField(
         controller: controller,
@@ -265,7 +265,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withOpacity(0.1), width: 1.w),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
       ),
       child: DropdownButtonHideUnderline(
         child: Obx(
@@ -296,7 +296,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withOpacity(0.1), width: 1.w),
+        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

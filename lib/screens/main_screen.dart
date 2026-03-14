@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/controllers/navigation_controller.dart';
@@ -28,8 +28,8 @@ class MainScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withOpacity(0.09),
-                    AppColors.white.withOpacity(0.0),
+                    AppColors.white.withValues(alpha: 0.09),
+                    AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.0, 0.8],
                 ),
@@ -46,8 +46,8 @@ class MainScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withOpacity(0.03),
-                    AppColors.white.withOpacity(0.0),
+                    AppColors.white.withValues(alpha: 0.03),
+                    AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.0, 0.8],
                 ),
@@ -64,8 +64,8 @@ class MainScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.white.withOpacity(0.02),
-                    AppColors.white.withOpacity(0.0),
+                    AppColors.white.withValues(alpha: 0.02),
+                    AppColors.white.withValues(alpha: 0.0),
                   ],
                   stops: const [0.1, 0.8],
                 ),
@@ -102,7 +102,7 @@ class MainScreen extends StatelessWidget {
         () => BottomNavigationBar(
           backgroundColor: AppColors.scaffoldBackground,
           selectedItemColor: AppColors.primaryLime,
-          unselectedItemColor: AppColors.white.withOpacity(0.5),
+          unselectedItemColor: AppColors.white.withValues(alpha: 0.5),
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 0,
@@ -122,7 +122,7 @@ class MainScreen extends StatelessWidget {
                 padding: EdgeInsets.only(top: 8.h),
                 child: Icon(Icons.calendar_today_outlined, size: 28.r),
               ),
-              label: 'Übersicht',
+              label: 'Ãœbersicht',
             ),
           ],
         ),

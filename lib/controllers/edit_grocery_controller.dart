@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/models/grocery_model.dart';
 
@@ -6,16 +6,16 @@ class EditGroceryController extends GetxController {
   final nameController = TextEditingController();
   final amountController = TextEditingController();
 
-  final selectedCategory = 'Obst & Gemüse'.obs;
+  final selectedCategory = 'Obst & GemÃ¼se'.obs;
   final selectedDate = DateTime.now().add(const Duration(days: 7)).obs;
 
   final List<String> categories = [
-    'Obst & Gemüse',
+    'Obst & GemÃ¼se',
     'Milchprodukte',
     'Fleisch & Fisch',
     'Snacks',
-    'Getränke',
-    'Tiefkühl',
+    'GetrÃ¤nke',
+    'TiefkÃ¼hl',
     'Vorratskammer',
     'Sonstiges',
   ];
