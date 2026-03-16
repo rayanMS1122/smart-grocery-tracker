@@ -1,8 +1,9 @@
-﻿import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/models/grocery_model.dart';
 
+// Logik für die Lebensmittel-Liste
 class GroceriesController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -16,13 +17,12 @@ class GroceriesController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-
-    _bindGroceriesStream();
+    _bindGroceriesStream(); // Echtzeit-Sync starten
   }
 
+  // Holt die Daten live aus Firestore
   void _bindGroceriesStream() {
     isLoading.value = true;
-
     String? uid = _auth.currentUser?.uid;
 
     if (uid == null) {
@@ -39,23 +39,20 @@ class GroceriesController extends GetxController {
         .snapshots()
         .map((snapshot) {
           List docs = snapshot.docs;
-
           List<GroceryModel> groceryList = [];
 
           for (var doc in docs) {
             GroceryModel grocery = GroceryModel.fromFirestore(doc);
-
             groceryList.add(grocery);
           }
-
           isLoading.value = false;
-
           return groceryList;
         });
 
     groceries.bindStream(stream);
   }
 
+  // Filter-Logik für Suche und Kategorien
   List<GroceryModel> get filteredGroceries {
     List<GroceryModel> results = groceries;
 
@@ -78,24 +75,15 @@ class GroceriesController extends GetxController {
     return results;
   }
 
-  void setSearchQuery(String query) {
-    searchQuery.value = query;
-  }
+  void setSearchQuery(String query) => searchQuery.value = query;
 
+  // Zahlen fürs Dashboard
   int get totalItems => groceries.length;
+  int get expiredCount => groceries.where((item) => item.status == "Abgelaufen" || item.status == "Läuft bald ab").length;
+  int get excellentCount => groceries.where((item) => item.status == "Sehr gut").length;
+  int get goodCount => groceries.where((item) => item.status == "Gut").length;
 
-  int get expiredCount {
-    return groceries.where((item) => item.status == "Abgelaufen").length;
-  }
-
-  int get excellentCount {
-    return groceries.where((item) => item.status == "Sehr gut").length;
-  }
-
-  int get goodCount {
-    return groceries.where((item) => item.status == "Gut").length;
-  }
-
+  // CRUD Operationen
   Future<void> addGrocery(GroceryModel grocery) async {
     String? uid = _auth.currentUser?.uid;
     if (uid != null) {
@@ -131,7 +119,5 @@ class GroceriesController extends GetxController {
     }
   }
 
-  void setFilter(String filter) {
-    selectedFilter.value = filter;
-  }
+  void setFilter(String filter) => selectedFilter.value = filter;
 }

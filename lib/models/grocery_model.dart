@@ -2,11 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 
+// Datenmodell für ein Lebensmittel
 class GroceryModel {
   final String? id;
-  final String name;       // z.B. "Apfel"
-  final String category;   // z.B. "Obst & Gemüse"
-  final String amount;     // z.B. "5 Stück"
+  final String name;
+  final String category;
+  final String amount;
   final DateTime expiryDate;
 
   GroceryModel({
@@ -17,6 +18,7 @@ class GroceryModel {
     required this.expiryDate,
   });
 
+  // Firestore Map -> Model
   factory GroceryModel.fromFirestore(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
 
@@ -31,13 +33,14 @@ class GroceryModel {
 
     return GroceryModel(
       id: doc.id,
-      name: data['name'] ?? 'Unbenannt',
+      name: data['name'] ?? 'Unbekannt',
       category: data['category'] ?? 'Sonstiges',
       amount: data['amount'] ?? '1',
       expiryDate: date,
     );
   }
 
+  // Model -> Firestore Map
   Map<String, dynamic> toFirestore() {
     return {
       'name': name,
@@ -48,9 +51,11 @@ class GroceryModel {
     };
   }
 
+  // Status-Text generieren
   String get status {
     final now = DateTime.now();
-    final difference = expiryDate.difference(now).inDays;
+    final today = DateTime(now.year, now.month, now.day);
+    final difference = expiryDate.difference(today).inDays;
 
     if (difference < 0) return "Abgelaufen";
     if (difference < 3) return "Läuft bald ab";
@@ -58,9 +63,11 @@ class GroceryModel {
     return "Sehr gut";
   }
 
+  // Farbe basierend auf Haltbarkeit
   Color get statusColor {
     final now = DateTime.now();
-    final difference = expiryDate.difference(now).inDays;
+    final today = DateTime(now.year, now.month, now.day);
+    final difference = expiryDate.difference(today).inDays;
 
     if (difference < 0) return AppColors.statusExpired;
     if (difference < 3) return Colors.orangeAccent;
@@ -68,9 +75,11 @@ class GroceryModel {
     return AppColors.statusExcellent;
   }
 
+  // Warnfarbe für den Kartenrand
   Color get borderColor {
     final now = DateTime.now();
-    final difference = expiryDate.difference(now).inDays;
+    final today = DateTime(now.year, now.month, now.day);
+    final difference = expiryDate.difference(today).inDays;
 
     if (difference < 3) return statusColor;
     return Colors.transparent;

@@ -195,7 +195,9 @@ class SignUpPage extends StatelessWidget {
                                   ),
                                   suffixIcon: IconButton(
                                     icon: Icon(
-                                      Icons.circle,
+                                      _obscurePassword.value
+                                          ? Icons.visibility_off_outlined
+                                          : Icons.visibility_outlined,
                                       color: Colors.grey.shade300,
                                       size: 20.r,
                                     ),
@@ -249,7 +251,9 @@ class SignUpPage extends StatelessWidget {
                                   ),
                                   suffixIcon: IconButton(
                                     icon: Icon(
-                                      Icons.circle,
+                                      _obscureConfirmPassword.value
+                                          ? Icons.visibility_off_outlined
+                                          : Icons.visibility_outlined,
                                       color: Colors.grey.shade300,
                                       size: 20.r,
                                     ),

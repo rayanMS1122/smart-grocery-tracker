@@ -95,7 +95,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             SizedBox(height: 30.h),
                             Text(
-                              'Welcome',
+                              'Willkommen',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 32.sp,
@@ -105,7 +105,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             SizedBox(height: 10.h),
                             Text(
-                              'Wellkommen in mein app. bitte loge\ndich ein',
+                              'Willkommen in deiner App. Bitte logge\ndich ein.',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -114,7 +114,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             SizedBox(height: 40.h),
                             Text(
-                              'Email-address*',
+                              'E-Mail-Adresse*',
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.white,
@@ -129,7 +129,7 @@ class LoginPage extends StatelessWidget {
                                 fontSize: 14.sp,
                               ),
                               decoration: InputDecoration(
-                                hintText: 'Example@gmai.com',
+                                hintText: 'beispiel@gmail.com',
                                 hintStyle: TextStyle(
                                   color: AppColors.greyMedium,
                                 ),
@@ -155,7 +155,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             SizedBox(height: 20.h),
                             Text(
-                              'Password*',
+                              'Passwort*',
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.white,
@@ -196,7 +196,9 @@ class LoginPage extends StatelessWidget {
                                   ),
                                   suffixIcon: IconButton(
                                     icon: Icon(
-                                      Icons.circle,
+                                      _obscurePassword.value
+                                          ? Icons.visibility_off_outlined
+                                          : Icons.visibility_outlined,
                                       color: Colors.grey.shade300,
                                       size: 20.r,
                                     ),
@@ -236,7 +238,7 @@ class LoginPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Hast du kein Account? ',
+                                  'Hast du keinen Account? ',
                                   style: TextStyle(
                                     color: AppColors.greyMedium,
                                     fontSize: 14.sp,
@@ -252,7 +254,7 @@ class LoginPage extends StatelessWidget {
                                     );
                                   },
                                   child: Text(
-                                    'Sign Up',
+                                    'Registrieren',
                                     style: TextStyle(
                                       color: Colors.grey.shade300,
                                       fontWeight: FontWeight.bold,

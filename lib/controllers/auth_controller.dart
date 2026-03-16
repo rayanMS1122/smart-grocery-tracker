@@ -5,12 +5,14 @@ import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/screens/main_screen.dart';
 import 'package:smart_grocery_tracker/screens/sign_in_screen.dart';
 
+// Auth-Logik für Firebase
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   late Rx<User?> _user;
   FirebaseAuth auth = FirebaseAuth.instance;
 
+  // Controller für die Login-Eingaben
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -20,10 +22,19 @@ class AuthController extends GetxController {
   void onReady() {
     super.onReady();
     _user = Rx<User?>(auth.currentUser);
+    // Stream für automatische Weiterleitung bei Login/Logout
     _user.bindStream(auth.authStateChanges());
     ever(_user, _initialScreen);
   }
 
+  @override
+  void onClose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.onClose();
+  }
+
+  // Navigation je nach Auth-Status
   void _initialScreen(User? user) {
     if (user == null) {
       Get.offAll(() => LoginPage());
@@ -32,43 +43,31 @@ class AuthController extends GetxController {
     }
   }
 
+  // E-Mail/Passwort Login
   void login() async {
     try {
       isLoading.value = true;
-
       if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-        Get.snackbar('Fehler', 'Email and Password must not be empty');
+        Get.snackbar('Fehler', 'Daten fehlen');
         return;
       }
       await auth.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-    } on FirebaseAuthException catch (e) {
-      String errorMessage = 'Ein unbekannter Fehler ist aufgetreten.';
-      if (e.code == 'user-not-found') {
-        errorMessage = 'No user found for that email.';
-      } else if (e.code == 'wrong-password' || e.code == 'invalid-credential') {
-        errorMessage = 'Wrong password or email.';
-      } else if (e.code == 'invalid-email') {
-        errorMessage = 'Die E-Mail-Adresse ist ungültig.';
-      } else {
-        errorMessage = e.message ?? errorMessage;
-      }
-      Get.snackbar('Fehler', errorMessage);
     } catch (e) {
-      Get.snackbar('Fehler', 'Something went wrong');
+      Get.snackbar('Fehler', 'Check mal deine Logindaten');
     } finally {
       isLoading.value = false;
     }
   }
 
+  // Account erstellen + Firestore Profil anlegen
   void register() async {
     try {
       isLoading.value = true;
-
       if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-        Get.snackbar('Fehler', 'Email and Password must not be empty');
+        Get.snackbar('Fehler', 'Alle Felder ausfüllen');
         return;
       }
       UserCredential credential = await auth.createUserWithEmailAndPassword(
@@ -83,26 +82,12 @@ class AuthController extends GetxController {
           'uid': credential.user!.uid,
         });
       }
-    } on FirebaseAuthException catch (e) {
-      String errorMessage = 'Ein unbekannter Fehler ist aufgetreten.';
-      if (e.code == 'email-already-in-use') {
-        errorMessage = 'Diese E-Mail wird bereits verwendet.';
-      } else if (e.code == 'weak-password') {
-        errorMessage = 'Das Passwort ist zu schwach (min. 6 Zeichen).';
-      } else if (e.code == 'invalid-email') {
-        errorMessage = 'Die E-Mail-Adresse ist ungÃ¼ltig.';
-      } else {
-        errorMessage = e.message ?? errorMessage;
-      }
-      Get.snackbar('Fehler', errorMessage);
     } catch (e) {
-      Get.snackbar('Fehler', 'Etwas ist schief gelaufen');
+      Get.snackbar('Fehler', 'Registrierung hat nicht geklappt');
     } finally {
       isLoading.value = false;
     }
   }
 
-  void logout() async {
-    await auth.signOut();
-  }
+  void logout() async => await auth.signOut();
 }

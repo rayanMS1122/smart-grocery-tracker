@@ -7,6 +7,7 @@ import 'package:smart_grocery_tracker/screens/edit_grocery_screen.dart';
 import 'package:smart_grocery_tracker/controllers/auth_controller.dart';
 import 'package:smart_grocery_tracker/widgets/grocery_item_card.dart';
 
+// Komplette Liste aller Lebensmittel
 class OverviewScreen extends StatelessWidget {
   final GroceriesController groceriesController = Get.find();
 
@@ -17,6 +18,7 @@ class OverviewScreen extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
+          // Header mit Logout-Option
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
             child: Row(
@@ -34,9 +36,7 @@ class OverviewScreen extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
-                      onTap: () {
-                        AuthController.instance.logout();
-                      },
+                      onTap: () => AuthController.instance.logout(),
                       child: Icon(
                         Icons.logout_outlined,
                         color: Colors.redAccent,
@@ -49,6 +49,7 @@ class OverviewScreen extends StatelessWidget {
             ),
           ),
 
+          // Suchleiste
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Container(
@@ -81,6 +82,7 @@ class OverviewScreen extends StatelessWidget {
             ),
           ),
 
+          // Kategorien zum Durchscrollen
           Padding(
             padding: EdgeInsets.symmetric(vertical: 20.h),
             child: Obx(() {
@@ -116,6 +118,7 @@ class OverviewScreen extends StatelessWidget {
             }),
           ),
 
+          // Die eigentliche Liste
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -133,7 +136,7 @@ class OverviewScreen extends StatelessWidget {
                 if (filteredItems.isEmpty) {
                   return Center(
                     child: Text(
-                      'Keine Artikel gefunden',
+                      'Nix gefunden...',
                       style: TextStyle(
                         color: AppColors.greyLight,
                         fontSize: 16.sp,

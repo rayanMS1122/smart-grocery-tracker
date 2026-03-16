@@ -6,13 +6,14 @@ import 'package:smart_grocery_tracker/controllers/groceries_controller.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 import 'package:smart_grocery_tracker/models/grocery_model.dart';
 
+// Neues Lebensmittel hinzufügen
 class AddGroceryScreen extends StatelessWidget {
   AddGroceryScreen({super.key});
 
   final AddGroceryController formController = Get.put(AddGroceryController());
   final GroceriesController groceriesController = Get.find();
 
-
+  // Speichern-Logik
   Future<void> _saveGrocery(BuildContext context) async {
     if (formController.nameController.text.trim().isEmpty ||
         formController.amountController.text.trim().isEmpty) {
@@ -35,15 +36,15 @@ class AddGroceryScreen extends StatelessWidget {
 
       await groceriesController.addGrocery(grocery);
 
-      Get.back();
+      Get.back(); // Zurück zur Liste
       Get.snackbar(
         'Erfolg',
-        'Lebensmittel erfolgreich hinzugefügt!',
+        'Ab in den Tracker damit!',
         backgroundColor: AppColors.primaryLime,
         colorText: AppColors.black,
       );
     } catch (e) {
-      Get.snackbar('Fehler', 'Konnte nicht gespeichert werden: $e');
+      Get.snackbar('Fehler', 'Ging leider nicht: $e');
     }
   }
 
@@ -221,7 +222,10 @@ class AddGroceryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
+        border: Border.all(
+          color: AppColors.white.withValues(alpha: 0.1),
+          width: 1.w,
+        ),
       ),
       child: TextField(
         controller: controller,
@@ -246,7 +250,10 @@ class AddGroceryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
+        border: Border.all(
+          color: AppColors.white.withValues(alpha: 0.1),
+          width: 1.w,
+        ),
       ),
       child: DropdownButtonHideUnderline(
         child: Obx(
@@ -277,7 +284,10 @@ class AddGroceryScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
+        border: Border.all(
+          color: AppColors.white.withValues(alpha: 0.1),
+          width: 1.w,
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

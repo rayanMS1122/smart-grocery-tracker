@@ -1,7 +1,8 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_grocery_tracker/models/grocery_model.dart';
 
+// Logik für das Bearbeiten-Formular
 class EditGroceryController extends GetxController {
   final nameController = TextEditingController();
   final amountController = TextEditingController();

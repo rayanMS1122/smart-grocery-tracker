@@ -6,6 +6,7 @@ import 'package:smart_grocery_tracker/controllers/groceries_controller.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 import 'package:smart_grocery_tracker/models/grocery_model.dart';
 
+// Lebensmittel-Details anpassen
 class EditGroceryScreen extends StatefulWidget {
   final GroceryModel groceryToEdit;
   final int editIndex;
@@ -32,7 +33,7 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       tag: 'edit_screen_${widget.editIndex}',
     );
 
-    formController.initData(widget.groceryToEdit);
+    formController.initData(widget.groceryToEdit); // Daten ins Formular laden
   }
 
   @override
@@ -41,10 +42,11 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
     super.dispose();
   }
 
+  // Update-Logik
   Future<void> _updateGrocery(BuildContext context) async {
     if (formController.nameController.text.trim().isEmpty ||
         formController.amountController.text.trim().isEmpty) {
-      Get.snackbar('Fehler', 'Bitte fülle alle Felder aus.');
+      Get.snackbar('Fehler', 'Daten fehlen noch');
       return;
     }
 
@@ -59,10 +61,10 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
 
       await groceriesController.updateGrocery(updatedGrocery);
 
-      Get.back();
-      Get.snackbar('Erfolg', 'Lebensmittel aktualisiert!');
+      Get.back(); // Fertig, zurück zur Liste
+      Get.snackbar('Erfolg', 'Änderungen gespeichert!');
     } catch (e) {
-      Get.snackbar('Fehler', 'Konnte nicht aktualisiert werden: $e');
+      Get.snackbar('Fehler', 'Update fehlgeschlagen: $e');
     }
   }
 
@@ -240,7 +242,10 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
+        border: Border.all(
+          color: AppColors.white.withValues(alpha: 0.1),
+          width: 1.w,
+        ),
       ),
       child: TextField(
         controller: controller,
@@ -265,7 +270,10 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
+        border: Border.all(
+          color: AppColors.white.withValues(alpha: 0.1),
+          width: 1.w,
+        ),
       ),
       child: DropdownButtonHideUnderline(
         child: Obx(
@@ -296,7 +304,10 @@ class _EditGroceryScreenState extends State<EditGroceryScreen> {
       decoration: BoxDecoration(
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(10.r),
-        border: Border.all(color: AppColors.white.withValues(alpha: 0.1), width: 1.w),
+        border: Border.all(
+          color: AppColors.white.withValues(alpha: 0.1),
+          width: 1.w,
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

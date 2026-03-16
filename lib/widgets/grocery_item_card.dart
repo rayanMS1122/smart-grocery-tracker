@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_grocery_tracker/core/app_colors.dart';
 
+// Die schicke Karte für jedes Lebensmittel in der Liste
 class GroceryItemCard extends StatelessWidget {
   final String category;
   final String title;

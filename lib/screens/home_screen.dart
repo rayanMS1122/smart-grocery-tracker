@@ -7,6 +7,7 @@ import 'package:smart_grocery_tracker/screens/edit_grocery_screen.dart';
 import 'package:smart_grocery_tracker/controllers/auth_controller.dart';
 import 'package:smart_grocery_tracker/widgets/grocery_item_card.dart';
 
+// Dashboard - Übersicht über alles Wichtige
 class HomeScreen extends StatelessWidget {
   final VoidCallback onNavigateToOverview;
   final GroceriesController groceriesController = Get.put(
@@ -23,6 +24,7 @@ class HomeScreen extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Obere Leiste mit Titel und Logout
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
                 child: Row(
@@ -37,9 +39,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () {
-                        AuthController.instance.logout();
-                      },
+                      onTap: () => AuthController.instance.logout(),
                       child: Icon(
                         Icons.login_outlined,
                         color: Colors.redAccent,
@@ -57,6 +57,7 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Stats-Sektion
                         Text(
                           'Statistiken',
                           style: TextStyle(
@@ -75,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             SizedBox(width: 12.w),
                             _buildStatCard(
-                              'Abgelaufen',
+                              'Kritisch', // Beinhaltet abgelaufene UND bald ablaufende Sachen
                               controller.expiredCount.toString(),
                               AppColors.statusExpired,
                             ),
@@ -100,6 +101,7 @@ class HomeScreen extends StatelessWidget {
 
                         SizedBox(height: 32.h),
 
+                        // Die neuesten Einträge
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -123,6 +125,7 @@ class HomeScreen extends StatelessWidget {
 
                         SizedBox(height: 12.h),
 
+                        // Anzeige der letzten 5 Lebensmittel
                         if (controller.isLoading.value)
                           Center(
                             child: Padding(
@@ -137,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.symmetric(vertical: 40.h),
                               child: Text(
-                                'Keine Lebensmittel vorhanden',
+                                'Noch nix da...',
                                 style: TextStyle(color: AppColors.greyLight),
                               ),
                             ),
@@ -191,6 +194,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Widget für die Statistik-Boxen
   Widget _buildStatCard(String label, String value, Color color) {
     return Expanded(
       child: Container(

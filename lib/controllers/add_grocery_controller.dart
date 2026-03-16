@@ -1,6 +1,7 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// Hält die Daten für das "Hinzufügen" Formular
 class AddGroceryController extends GetxController {
   final nameController = TextEditingController();
   final amountController = TextEditingController();

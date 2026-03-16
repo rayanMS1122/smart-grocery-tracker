@@ -28,7 +28,7 @@ Die UI Design ist verfügbar in Figma: [Smart Grocery Tracker](https://www.figma
 
 | Funktion | Beschreibung |
 |---|---|
-| 🔐 **Login & Registrierung** | Firebase Authentication (E-Mail / Google) |
+| 🔐 **Login & Registrierung** | Firebase Authentication (E-Mail / Passwort) |
 | 📊 **Dashboard** | Statistiken + Übersicht der letzten Einträge |
 | ➕ **Hinzufügen** | Formular mit Name, Kategorie (Dropdown), Menge, Ablaufdatum |
 | ✏️ **Bearbeiten & Löschen** | Über das Kontextmenü jeder Karte |
@@ -43,7 +43,7 @@ Die UI Design ist verfügbar in Figma: [Smart Grocery Tracker](https://www.figma
 
 | Login | Dashboard | Hinzufügen | Übersicht |
 |---|---|---|---|
-| ![Login](screenshots/login_screen.png) | ![Dashboard](screenshots/dashboard_screen.dart.png) | ![Add](screenshots/add_grocery_screen.png) | ![Overview](screenshots/overview_screen.png) |
+| ![Login](screenshots/login_screen.png) | ![Dashboard](screenshots/dashboard_screen.png) | ![Add](screenshots/add_grocery_screen.png) | ![Overview](screenshots/overview_screen.png) |
 
 ---
 
